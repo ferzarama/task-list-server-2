@@ -3,10 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title%></title>
+    <title>task-list</title>
+
+     <style>
+      body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7dfca; /* Un agradable color de fondo */
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff; /* Fondo blanco para el contenedor */
+    border: 1px solid #ddd; /* Borde suave alrededor del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff; /* Fondo blanco para las tareas */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.task label {
+    flex: 1;
+}
+
+.task button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #dc3545; /* Rojo para los botones de acción */
+    color: #fff; /* Texto en blanco */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.task-form {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.task-form input {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.task-form button {
+    flex: 1;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.task-form button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
 </head>
 <body>
-    <h1>Contact me</h1>
+    <h1>Lista De Tareas</h1>
+
+       <div class="container">
+        <h1>Gestión de Tareas</h1>
+
+        <h2>Crear una nueva tarea</h2>
+        <form class="task-form" id="create-task-form">
+            <input type="text" id="new-task" placeholder="Nueva tarea" required>
+            <button type="submit">Agregar</button>
+        </form>
+
+        <h2>Actualizar una tarea</h2>
+        <form class="task-form" id="update-task-form">
+            <input type="text" id="update-task" placeholder="Actualizar tarea" required>
+            <input type="hidden" id="update-task-id">
+            <button type="submit">Actualizar</button>
+        </form>
+
+        <h2>Eliminar una tarea</h2>
+        <form class="task-form" id="delete-task-form">
+            <input type="number" id="delete-task-id" placeholder="ID de tarea a eliminar" required>
+            <button type="submit">Eliminar</button>
+        </form>
+
+        <h2>Listar todas las tareas</h2>
+        <ul class="task-list" id="all-tasks"></ul>
+
+        <h2>Listar tareas completas</h2>
+        <ul class="task-list" id="completed-tasks"></ul>
+
+        <h2>Listar tareas incompletas</h2>
+        <ul class="task-list" id="incomplete-tasks"></ul>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
 

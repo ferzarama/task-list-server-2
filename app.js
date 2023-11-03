@@ -48,6 +48,63 @@ function verifyToken(req, res, next) {
   });
 }
 
+app.post("/tasks", (req, res) => {
+  const newTask = req.body;
+  tasks.push(newTask);
+  res.status(201).json(newTask);
+});
+
+app.get("/tasks", (req, res) => {
+  res.json(tasks);
+});
+
+app.get("/tasks/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId);
+  const task = tasks.find((t) => t.id === taskId);
+
+  if (task) {
+    res.json(task);
+  } else {
+    res.status(404).json({ message: "Tarea no encontrada" });
+  }
+});
+
+app.put("/tasks/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId);
+  const updatedTask = req.body;
+  const taskIndex = tasks.findIndex((t) => t.id === taskId);
+
+  if (taskIndex !== -1) {
+    tasks[taskIndex] = updatedTask;
+    res.json(updatedTask);
+  } else {
+    res.status(404).json({ message: "Tarea no encontrada" });
+  }
+});
+
+app.delete("/tasks/:taskId", (req, res) => {
+  const taskId = parseInt(req.params.taskId);
+  const taskIndex = tasks.findIndex((t) => t.id === taskId);
+
+  if (taskIndex !== -1) {
+    tasks.splice(taskIndex, 1);
+    res.status(204).end();
+  } else {
+    res.status(404).json({ message: "Tarea no encontrada" });
+  }
+});
+
+app.get("/tasks/completas", (req, res) => {
+  const completedTasks = tasks.filter((t) => t.completed);
+  res.json(completedTasks);
+});
+
+app.get("/tasks/incompletas", (req, res) => {
+  const incompleteTasks = tasks.filter((t) => !t.completed);
+  res.json(incompleteTasks);
+});
+
+
 app.get("/", (req, res) => {
   res.send("Bienvenido a la página principal");
 });
