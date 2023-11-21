@@ -1,15 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title%></title>
-</head>
-<body>
+    <%- include('partials/head') %>
+    <style>
+
+      body {
+    background-image: url('https://th.bing.com/th/id/R.935b19a9380cf747519f8f1c51d6e2a1?rik=nDdQKIOWSSFssQ&pid=ImgRaw&r=0'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+}
+
+      
+      .todo-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+      }
+      .todo-list li {
+        background-color: #f4f4f4;
+        padding: 10px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
+      .todo-list li:hover {
+        background-color: #ddd;
+      }
+      .completed {
+        text-decoration: line-through;
+      }
+      .input-group {
+        margin-bottom: 10px;
+      }
+      .input-group input,
+      .input-group button {
+        padding: 10px;
+      }
+      .clear-all {
+        float: right;
+        margin-top: -28px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navigation') %>
+
     <h1>About me</h1>
-</body>
+
+    <h1>Todo App</h1>
+    <div class="input-group">
+      <input type="text" id="todo-input" placeholder="Add your new todo" />
+      <button id="add-todo">Add</button>
+    </div>
+    <ul class="todo-list" id="todo-list"></ul>
+    <div class="clear-all" id="clear-all">Clear All</div>
+    <script>
+      const todoInput = document.getElementById("todo-input");
+      const addTodoBtn = document.getElementById("add-todo");
+      const todoList = document.getElementById("todo-list");
+      const clearAllBtn = document.getElementById("clear-all");
+
+      addTodoBtn.addEventListener("click", () => {
+        if (todoInput.value.trim() === "") {
+          alert("Please enter a valid todo");
+          return;
+        }
+        const li = document.createElement("li");
+        li.innerText = todoInput.value.trim();
+        li.addEventListener("click", () => {
+          li.classList.toggle("completed");
+        });
+        todoList.appendChild(li);
+        todoInput.value = "";
+      });
+
+      clearAllBtn.addEventListener("click", () => {
+        todoList.innerHTML = "";
+      });
+    </script>
+  </body>
 </html>
-
-
-
-
