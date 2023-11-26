@@ -3,125 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>task-list</title>
+    <title>Contactalo</title>
     <%- include('partials/head') %>
 
     <style>
-      h1{
-        font-size: small;
-      }
-
       body {
-        background-image: url('https://th.bing.com/th/id/R.935b19a9380cf747519f8f1c51d6e2a1?rik=nDdQKIOWSSFssQ&pid=ImgRaw&r=0'); 
-    background-size: cover; 
-    background-repeat: no-repeat; 
-      }
-
-
-      .task-list {
-        list-style: none;
+        margin: 0;
         padding: 0;
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa; /* Set your desired background color */
       }
 
-      .task {
-        display: flex;
-        justify-content: space-between;
-        margin: 10px 0;
+      .container {
+        height: 5vh;
+      }
+
+      .card {
+        width: 400px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .card h1 {
+        margin-bottom: 20px;
+        color: #ffffff; /* Set your desired text color */
+      }
+
+      .card-body {
+        background-color: #ffffff; /* Set your desired background color */
+        border-radius: 0 0 10px 10px;
+        padding: 20px;
+      }
+
+      form {
+        width: 100%;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      .form-control {
+        width: 100%;
         padding: 10px;
-        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da; /* Set your desired border color */
         border-radius: 5px;
-        background-color: #fff; /* Fondo blanco para las tareas */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
       }
 
-      .task label {
-        flex: 1;
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da; /* Set your desired border color */
+        border-radius: 5px;
       }
 
-      .task button {
-        margin-left: 10px;
-        cursor: pointer;
-        background-color: #dc3545; /* Rojo para los botones de acción */
-        color: #fff; /* Texto en blanco */
+      button {
+        background-color: #007bff; /* Set your desired button background color */
+        color: #ffffff; /* Set your desired button text color */
+        padding: 10px 20px;
         border: none;
-        padding: 5px 10px;
         border-radius: 5px;
-      }
-
-      .task-form {
-        display: flex;
-        justify-content: space-between;
-        margin: 20px 0;
-      }
-
-      .task-form input {
-        flex: 2;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-      }
-
-      .task-form button {
-        flex: 1;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
         cursor: pointer;
-        border-radius: 5px;
       }
 
-      .task-form button:hover {
-        background-color: #0056b3;
+      button:hover {
+        background-color: #0056b3; /* Set your desired button hover background color */
       }
     </style>
   </head>
   <body>
     <%- include('partials/navigation') %>
-    <h1>Lista De Tareas</h1>
 
-    <div class="container">
-      <h1>Gestión de Tareas</h1>
+    <div
+      class="container vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="card bg-dark text-white text-center">
+        <h1>Contact Me</h1>
+      </div>
+      <div class="card-body text-start">
+        <form>
+          <div class="mb-3">
+            <label for="Email">Email</label>
+            <input type="Email" placeholder="Email" class="form-control" />
+          </div>
 
-      <h2>Crear una nueva tarea</h2>
-      <form class="task-form" id="create-task-form">
-        <input type="text" id="new-task" placeholder="Nueva tarea" required />
-        <button type="submit">Agregar</button>
-      </form>
+          <div class="mb-3">
+            <label for="Message">Message</label>
+            <textarea
+              name="message"
+              rows="4"
+              class="form-control"
+              placeholder="write a message"
+            ></textarea>
+          </div>
 
-      <h2>Actualizar una tarea</h2>
-      <form class="task-form" id="update-task-form">
-        <input
-          type="text"
-          id="update-task"
-          placeholder="Actualizar tarea"
-          required
-        />
-        <input type="hidden" id="update-task-id" />
-        <button type="submit">Actualizar</button>
-      </form>
-
-      <h2>Eliminar una tarea</h2>
-      <form class="task-form" id="delete-task-form">
-        <input
-          type="number"
-          id="delete-task-id"
-          placeholder="ID de tarea a eliminar"
-          required
-        />
-        <button type="submit">Eliminar</button>
-      </form>
-
-      <h2>Listar todas las tareas</h2>
-      <ul class="task-list" id="all-tasks"></ul>
-
-      <h2>Listar tareas completas</h2>
-      <ul class="task-list" id="completed-tasks"></ul>
-
-      <h2>Listar tareas incompletas</h2>
-      <ul class="task-list" id="incomplete-tasks"></ul>
+          <button>Save</button>
+        </form>
+      </div>
     </div>
 
-    <script src="app.js"></script>
+    <%- include('partials/footer') %>
   </body>
 </html>

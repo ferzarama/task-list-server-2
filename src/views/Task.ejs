@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>task-list</title>
+    <%- include('partials/head') %>
+
+    <style>
+      h1 {
+        font-size: small;
+      }
+
+      body {
+        background-image: url("https://img.freepik.com/fotos-premium/fondo-textura-hoja-metal-dorado-brillante-borroso-fondo-degradado-abstracto-arte-patron-oro-metalico_113767-5251.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .task-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .task {
+        display: flex;
+        justify-content: space-between;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff; /* Fondo blanco para las tareas */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+      }
+
+      .task label {
+        flex: 1;
+      }
+
+      .task button {
+        margin-left: 10px;
+        cursor: pointer;
+        background-color: #dc3545; /* Rojo para los botones de acción */
+        color: #fff; /* Texto en blanco */
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      .task-form {
+        display: flex;
+        justify-content: space-between;
+        margin: 20px 0;
+      }
+
+      .task-form input {
+        flex: 2;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .task-form button {
+        flex: 1;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      .task-form button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navigation') %>
+    <h1>Lista De Tareas</h1>
+
+   <div class="container">
+  <form class="task-form" id="create-task-form">
+    <input type="text" id="new-task" placeholder="Nueva tarea" required />
+    <button type="submit">Agregar</button>
+  </form>
+
+  <h2>Actualizar una tarea</h2>
+  <form class="task-form" id="update-task-form">
+    <input type="text" id="update-task" placeholder="Actualizar tarea" required />
+    <input type="hidden" id="update-task-id" />
+    <button type="submit">Actualizar</button>
+  </form>
+
+  <h2>Eliminar una tarea</h2>
+  <form class="task-form" id="delete-task-form">
+    <input type="number" id="delete-task-id" placeholder="ID de tarea a eliminar" required />
+    <button type="submit">Eliminar</button>
+  </form>
+
+  <h2>Listar todas las tareas</h2>
+  <ul class="task-list" id="all-tasks"></ul>
+
+  <h2>Listar tareas completas</h2>
+  <ul class="task-list" id="completed-tasks"></ul>
+
+  <h2>Listar tareas incompletas</h2>
+  <ul class="task-list" id="incomplete-tasks"></ul>
+
+  <script src="app.js"></script>
+</div>
+
+<%- include('partials/footer') %>
+
+  </body>
+</html>

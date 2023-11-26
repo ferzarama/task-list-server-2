@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to bottom right, #ffd700, #0000ff, #ffffff, #ff0000);
+    background-size: 200% 200%;
+    animation: movimiento 4s linear infinite alternate;
+    -webkit-animation: movimiento 4s linear infinite alternate;
+}
+
+@keyframes movimiento {
+    from {
+        background-position: 0% 0%;
+    }
+
+    to {
+        background-position: 100% 100%;
+    }
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title%></title>
+    <%- include('partials/head') %>
+    <style>
+      .bubble {
+        position: relative;
+        width: 100px;
+        height: 100px;
+        background-color: #4caf50; /* Green, or your desired color */
+        border-radius: 50%;
+      }
+
+      .bubble::before {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: #fff; /* White, or your desired color */
+        border-radius: 20%;
+        top: 10px;
+        left: 10px;
+      }
+
+      .input-group {
+        margin-bottom: 15px;
+      }
+
+      #todo-input {
+        padding: 8px;
+        width: 200px;
+      }
+
+      #add-todo,
+      #clear-all {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        margin-right: 10px;
+      }
+
+      #add-todo:hover,
+      #clear-all:hover {
+        background-color: #45a049;
+      }
+
+      .todo-list {
+        list-style: none;
+        padding: 0;
+      }
+
+      .todo-list li {
+        background-color: #fff;
+        padding: 10px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .todo-list li.completed {
+        text-decoration: line-through;
+        color: #888;
+      }
+
+      .todo-list li button {
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        padding: 5px;
+        margin-left: 5px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .todo-list li button:hover {
+        background-color: #e60000;
+      }
+
+      h1{
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navigation') %>
+
+    <h1>Añadiendo tus deseos</h1>
+
+    <h1>Añade lo que quieras</h1>
+    <div class="input-group">
+      <input type="text" id="todo-input" placeholder="Add your new todo" />
+      <button id="add-todo">Add</button>
+    </div>
+    <ul class="todo-list" id="todo-list"></ul>
+    <div class="clear-all" id="clear-all">Clear All</div>
+
+    <script>
+      const todoInput = document.getElementById("todo-input");
+      const addTodoBtn = document.getElementById("add-todo");
+      const todoList = document.getElementById("todo-list");
+      const clearAllBtn = document.getElementById("clear-all");
+
+      // Function to create a new todo item
+      function addTodo() {
+        if (todoInput.value.trim() === "") {
+          alert("Please enter a valid todo");
+          return;
+        }
+
+        const li = document.createElement("li");
+        li.innerText = todoInput.value.trim();
+
+        // Add click event for marking as completed
+        li.addEventListener("click", () => {
+          li.classList.toggle("completed");
+        });
+
+        // Add delete button
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "Delete";
+        deleteBtn.addEventListener("click", () => {
+          todoList.removeChild(li);
+        });
+
+        // Append delete button to the list item
+        li.appendChild(deleteBtn);
+
+        // Append the new todo to the list
+        todoList.appendChild(li);
+
+        // Clear the input field
+        todoInput.value = "";
+      }
+
+      // Event listener for adding a new todo
+      addTodoBtn.addEventListener("click", addTodo);
+
+      // Event listener for clearing all todos
+      clearAllBtn.addEventListener("click", () => {
+        todoList.innerHTML = "";
+      });
+
+      // Event listener for adding a new todo when pressing Enter
+      todoInput.addEventListener("keypress", (event) => {
+        if (event.key === "Enter") {
+          addTodo();
+        }
+      });
+    </script>
+
+    <%- include('partials/footer') %>
+    
+  </body>
+</html>

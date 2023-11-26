@@ -10,11 +10,15 @@ app.set("view engine", "ejs");
 app.get("/", (req, res) =>
   res.render("index", { title: "La primera aplicación con Node" })
 );
-app.get("/about", (req, res) => res.render("about", { title: "Acerca de mí" }));
-app.get("/contact", (req, res) =>
-  res.render("contact", { title: "Lista de tareas" })
+app.get("/Wishes", (req, res) => res.render("Wishes", { title: "Deseos" }));
+app.get("/Task", (req, res) =>
+  res.render("Task", { title: "Task" })
 );
-
+app.get("/Task", (req, res) =>
+  res.render("Task", { title: "Task" })
+);
+app.get("/About", (req, res) => res.render("About", { title: "Task" }));
+app.get("/Contact", (req, res) => res.render("Contact", { title: "Task" }));
 
 app.use(express.static(path.join(__dirname, "public")));
 
