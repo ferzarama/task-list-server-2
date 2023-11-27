@@ -1,24 +1,28 @@
-const express = require("express")
-const ejs = require("ejs")
-const {dirname} = require("path")
-const path = require('path');
-const directorioActual = __dirname;
-const rutaArchivoEnViews = path.join(directorioActual, 'views');
-console.log('La ruta al archivo en la carpeta "views" es: ' + rutaArchivoEnViews);
+const express = require("express");
+const ejs = require("ejs");
+const path = require("path");
 
+const app = express();
 
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
+app.get("/", (req, res) =>
+  res.render("index", { title: "La primera aplicación con Node" })
+);
+app.get("/Wishes", (req, res) => res.render("Wishes", { title: "Deseos" }));
+app.get("/Task", (req, res) =>
+  res.render("Task", { title: "Task" })
+);
+app.get("/Task", (req, res) =>
+  res.render("Task", { title: "Task" })
+);
+app.get("/About", (req, res) => res.render("About", { title: "Task" }));
+app.get("/Contact", (req, res) => res.render("Contact", { title: "Task" }));
 
-const app= express()
+app.use(express.static(path.join(__dirname, "public")));
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
-
-app.get('/', (req, res) => res.render('index', { title: 'the firts page with node' }))
-
-app.get('/about', (req, res) => res.render('about', { title: 'about me'}))
-
-app.get('/contact', (req, res) => res.render('contact', { title: 'contact me'}))
-
-app.listen(3000)
-console.log('server is listening on port', 3000)
+const port = 3000;
+app.listen(port, () => {
+  console.log("El servidor está escuchando en el puerto", port);
+});

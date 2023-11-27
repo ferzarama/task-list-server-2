@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title%></title>
-</head>
-<body>
-    <h1>Abriendo Caminos</h1>
-</body>
+    <%- include('partials/head') %>
+  </head>
+
+  <body>
+    <%- include('partials/navigation') %>
+
+    <!--Main content-->
+
+    <header
+      class="container vh-100 d-flex justify-content-center align-items-center"
+    >
+      <div class="d-flex flex-column justify-content-center align-items-center">
+        <img src="/img/logoFer.png" alt="Logo" class="w-50" />
+        <h1 class="display-1 my-5 text-uppercase fw-bold text-align-center">
+          Fernando Zarama Pardo
+        </h1>
+        <a href="/Wishes" class="btn btn-primary w-30 text-center">Wish</a>
+      </div>
+    </header>
+
+    <%- include('partials/footer') %>
+  </body>
 </html>

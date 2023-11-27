@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title%></title>
-</head>
-<body>
-    <h1>About me</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fer</title>
+    <%- include('partials/head') %>
+    <style>
+      p {
+        position: relative; /* Set the position to relative for absolute positioning */
+        background-color: #f0f0f0;
+        border: 2px solid #3498db;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        font-family: "Arial", sans-serif;
+        max-width: 600px;
+        margin: auto;
+      }
+
+      .profile-image {
+        position: absolute; /* Set the position to absolute for precise placement */
+        bottom: 0; /* Align to the bottom */
+        right: 0; /* Align to the right */
+        width: 80px; /* Adjust the width of the image */
+        border-radius: 50%; /* Create a circular border for the image */
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navigation') %>
+
+    <main>
+      <section>
+        <h1 class="display-1">About</h1>
+        <p>
+          🚀 Desarrollador Full Stack | Apasionado por la Innovación y
+          Eficiencia 🚀 Soy un apasionado Full Stack Developer con un enfoque
+          claro en crear soluciones tecnológicas innovadoras y eficientes. Mi
+          pasión por la tecnología me lleva a explorar y desarrollar en el lado
+          del cliente lo que me permite crear aplicaciones web completas y
+          altamente funcionales. Pero no soy solo un desarrollador, también
+          aporto un valioso conjunto de habilidades blandas que benefician a las
+          empresas en muchos aspectos. Mi enfoque principal se centra en el
+          front end, donde despliego mi capacidad para diseñar e implementar
+          interfaces de usuario atractivas y fáciles de usar. Además, cuento con
+          sólidos conocimientos de diseño, lo que me permite construir un puente
+          de colaboración sólido entre el diseñador y el equipo de desarrollo,
+          creando así plataformas inolvidables para los usuarios. Adicionalmente
+          soy escritor y autor de libros para Amazon, columnista, periodista y
+          locutor En resumen, mi objetivo es marcar la diferencia en el mundo
+          tecnológico, periodístico, comunicativo y de la literatura, impulsando
+          la innovación y la eficiencia en cada proyecto en el que me involucro.
+          ¿Quieres ser parte de esa transformación?
+
+          <!-- Add the profile image inside the <p> element -->
+          <img src="/img/logoFer.png" alt="Profile" class="profile-image" />
+        </p>
+      </section>
+    </main>
+
+    <%- include('partials/footer') %>
+  </body>
 </html>
-
-
-
-
