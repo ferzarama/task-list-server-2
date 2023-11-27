@@ -11,14 +11,10 @@ app.get("/", (req, res) =>
   res.render("index", { title: "La primera aplicación con Node" })
 );
 app.get("/Wishes", (req, res) => res.render("Wishes", { title: "Deseos" }));
-app.get("/Task", (req, res) =>
-  res.render("Task", { title: "Task" })
-);
-app.get("/Task", (req, res) =>
-  res.render("Task", { title: "Task" })
-);
-app.get("/About", (req, res) => res.render("About", { title: "Task" }));
-app.get("/Contact", (req, res) => res.render("Contact", { title: "Task" }));
+app.get("/Task", (req, res) => res.render("Task", { title: "Task" }));
+app.get("/About", (req, res) => res.render("About", { title: "About" }));
+app.get("/Contact", (req, res) => res.render("Contact", { title: "Contact" }));
+app.get("/Car", (req, res) => res.render("Car", { title: "Car Test" }));
 
 app.use(express.static(path.join(__dirname, "public")));
 

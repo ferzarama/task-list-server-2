@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Test</title>
+    <%- include('partials/head') %>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+        background-color: #f0f0f0;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      label {
+        margin-right: 20px;
+        font-size: 16px;
+        color: #555;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      #result {
+        margin-top: 20px;
+        font-size: 18px;
+        color: #333;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Fireworks animation */
+      @keyframes fireworks {
+        0% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(1.2);
+          opacity: 0.5;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.8;
+        }
+      }
+
+      .fireworks {
+        animation: fireworks 1s ease-in-out;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 20px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Car Test</h1>
+
+    <form id="carForm">
+      <label> <input type="radio" name="puertas" value="4" /> 5 Doors </label>
+      <label> <input type="radio" name="puertas" value="6" /> 6 Doors </label>
+      <br />
+      <button type="button" onclick="runTest()">Choose Your Next Car</button>
+    </form>
+
+    <div id="result"></div>
+    <img
+      id="carImage"
+      src="https://dam.alfuttaim.com/dx/api/dam/v1/collections/59137b70-564b-4d14-b9a3-4911ea3e3432/items/aadeae09-6151-41c7-9644-11354ccd05e3/renditions/8be50ed7-55c1-4e27-acad-9d5b6af9bb4f?binary=true"
+      alt="Car Image"
+    />
+
+    <script>
+      function runTest() {
+        let selectedDoors = document.querySelector(
+          'input[name="puertas"]:checked'
+        );
+
+        if (selectedDoors) {
+          let carro = {
+            color: "Beige",
+            tracción: "4x4",
+            llantas: 4,
+            puertas: parseInt(selectedDoors.value),
+            marca: "Toyota",
+          };
+
+          let resultElement = document.getElementById("result");
+          let carImageElement = document.getElementById("carImage");
+
+          if (carro.puertas === 6) {
+            resultElement.textContent = "Haz elegido tu próxima Camioneta";
+            carImageElement.src =
+              "https://i.ytimg.com/vi/KfTHTP8yh8g/maxresdefault.jpg";
+          } else {
+            resultElement.textContent = "Haz elegido tu próximo Sedan";
+            carImageElement.src =
+              "https://www.las2orillas.co/wp-content/uploads/2023/09/toyota-corolla-2024.jpg";
+          }
+
+          carImageElement.classList.add("fireworks");
+          setTimeout(() => {
+            carImageElement.classList.remove("fireworks");
+          }, 1000);
+        } else {
+          alert("Please select the number of doors before running the test.");
+        }
+      }
+    </script>
+
+    <%- include('partials/footer') %>
+    <footer>
+      <h2>Go to Toyota</h2>
+      <a
+        href="https://www.toyota.ae/en/offers/new-model/general-offer/"
+        target="_blank"
+        >Visit Website</a
+      >
+      <a href="/task" class="footer-btn">Task</a>
+      <a href="/about" class="footer-btn">About</a>
+      <a href="/Contact" class="footer-btn">Contact</a>
+    </footer>
+  </body>
+</html>
