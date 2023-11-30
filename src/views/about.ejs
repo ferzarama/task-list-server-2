@@ -25,10 +25,106 @@
         width: 80px; /* Adjust the width of the image */
         border-radius: 50%; /* Create a circular border for the image */
       }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .rss-container {
+        position: fixed;
+        left: 0;
+        top: 50%;
+        padding: 10px;
+        width: 50px;
+      }
+
+      .rss-item {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .rss-item img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0px 40px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
     </style>
   </head>
   <body>
     <%- include('partials/navigation') %>
+
+    <div class="rss-container">
+      <a
+        class="rss-item"
+        href="https://fernando-zarama-pardo.jimdosite.com/"
+        target="_blank"
+      >
+        <img src="/img/logoFer.png" alt="Fernando Zarama Pardo" />
+      </a>
+
+      <a
+        class="rss-item"
+        href="https://www.linkedin.com/in/fernandozaramapardo-frontenddeveloper/"
+        target="_blank"
+      >
+        <img
+          src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://www.instagram.com/ferzaramap/"
+        target="_blank"
+      >
+        <img
+          src="https://eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png"
+          alt="Twitter ACL"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://www.amazon.com/stores/Sr-Fernando-Zarama-Pardo/author/B0C9XG2Z8J?ref=ap_rdr&store_ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+        target="_blank"
+      >
+        <img
+          src="https://logowik.com/content/uploads/images/amazon6707.jpg"
+          alt="Instagram ACL"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://aclcolombia.com/voces-acl/fernando-zarama/"
+        target="_blank"
+      >
+        <img
+          src="https://pbs.twimg.com/profile_images/951156091454402560/aU397EQz_400x400.jpg"
+        />
+      </a>
+    </div>
 
     <main>
       <section>
@@ -60,5 +156,15 @@
     </main>
 
     <%- include('partials/footer') %>
+
+    <footer>
+      <h2>Go to My Home Page</h2>
+      <a href="https://fernando-zarama-pardo.jimdosite.com/" target="_blank"
+        >Visit My Website</a
+      >
+      <a href="/task" class="footer-btn">Task</a>
+      <a href="/Wishes" class="footer-btn">Wish</a>
+      <a href="/car" class="footer-btn">Car</a>
+    </footer>
   </body>
 </html>

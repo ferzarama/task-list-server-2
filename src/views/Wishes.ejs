@@ -7,7 +7,7 @@
     <%- include('partials/head') %>
     <style>
       .bubble {
-        position: relative;
+        position: absolute;
         width: 100px;
         height: 100px;
         background-color: #4caf50; /* Green, or your desired color */
@@ -17,16 +17,16 @@
       .bubble::before {
         content: "";
         position: absolute;
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
         background-color: #fff; /* White, or your desired color */
         border-radius: 20%;
-        top: 10px;
+        top: 100px;
         left: 10px;
       }
 
       .input-group {
-        margin-bottom: 15px;
+        margin-bottom: 380px;
       }
 
       #todo-input {
@@ -85,23 +85,146 @@
         background-color: #e60000;
       }
 
-      h1{
+      h1 {
         text-align: center;
+      }
+
+       .image-carousel {
+      width:100%; 
+      height: auto;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-carousel img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+
+   
+    .image-carousel img.active {
+      display:block;
+      animation: fadeInOut 6s linear infinite alternate;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 100;
+      }
+    }
+
+    .quote-box {
+      width: 30%;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin: 20px 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .quote {
+      font-size: 16px;
+      font-style: italic;
+      color: #333;
+    }
+
+    /* Image carousel styles */
+    .image-carousel {
+      width: 30%;
+      height: auto;
+      position: block;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .image-carousel img {
+      width: 100%;
+      height: auto;
+      display: none;
+    }
+
+    /* Add animation for image transition */
+    .image-carousel img.active {
+      display: block;
+      animation: fadeInOut 5s linear infinite alternate;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+    }
+
+     body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0px 40px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #2980b9;
       }
     </style>
   </head>
   <body>
     <%- include('partials/navigation') %>
 
-    <h1>Añadiendo tus deseos</h1>
-
     <h1>Añade lo que quieras</h1>
+
+
     <div class="input-group">
-      <input type="text" id="todo-input" placeholder="Add your new todo" />
+      <input type="text" id="todo-input" placeholder="Add your wish" />
       <button id="add-todo">Add</button>
     </div>
     <ul class="todo-list" id="todo-list"></ul>
     <div class="clear-all" id="clear-all">Clear All</div>
+
+     <div class="image-carousel">
+      <img src="https://www.elespectador.com/resizer/hYsH_3KI5NtD3chi_IVkgMZhjwA=/525x350/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/XIUXTFFJNFFOFMVQZIMPLRQXHY.jpeg" class="active" alt="Image 1">
+      <img src="https://mexicotravelchannel.com.mx/wp-content/uploads/2020/12/mexico-por-tierra-iniciativa-para-reactivar-viajes-por-carretera.jpg" alt="Image 2">
+      <img src="https://cdn.colombia.com/sdi/2023/01/04/estas-son-epocas-de-temporada-baja-para-que-programe-sus-viajes-en-el-2023-1104223-1.jpg" alt="Image 3">
+      <img src="https://www.triptomax.com/wp-content/uploads/2018/05/shutterstock_193994486.jpg" alt="Image 5">
+      <img src="https://blog.interfell.com/hubfs/como%20crear%20un%20equipo%20de%20trabajo%20fuerte%20y%20estable.jpg" alt="Image 6">
+      <img src="https://www.formacionsmart.com/wp-content/uploads/2020/12/liderr.jpg" alt="Image 7">
+      <img src="https://www.iglesiasion.com/wp-content/uploads/2019/03/Arrepentimiento22.jpg" alt="Image 8">
+      <img src="https://images.ctfassets.net/cfexf643femz/28ZkejRHq1JYBe4VyXQ6l8/7c03c0dff6e2da175681dee22e1db8f4/subsidios-para-comprar-vivienda-vis-LaHaus.jpg" alt="Image 9">
+      <img src="https://img.freepik.com/fotos-premium/salva-mundo-salva-medio-ambiente-dia-mundial-tierra_582637-1011.jpg" alt="Image 10">
+    </div>
+  </div>
+
+    <div class="quote-box">
+      <p class="quote">"Your task is not to seek for love, but merely to seek and find all the barriers within yourself that you have built against it." - Rumi</p>
+    </div>
+
 
     <script>
       const todoInput = document.getElementById("todo-input");
@@ -155,9 +278,38 @@
           addTodo();
         }
       });
+
+       document.addEventListener('DOMContentLoaded', function () {
+    const images = document.querySelectorAll('.image-carousel img');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      images.forEach((image, i) => {
+        image.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    setInterval(nextImage, 5000); // Change image every 5 seconds
+  });
     </script>
 
     <%- include('partials/footer') %>
+
+      <footer>
+      <h2>Go to My Home Page</h2>
+      <a
+        href="https://fernando-zarama-pardo.jimdosite.com/"
+        target="_blank"
+        >Visit My Website</a>
+      <a href="/task" class="footer-btn">Task</a>
+      <a href="/about" class="footer-btn">About</a>
+      <a href="/Contact" class="footer-btn">Contact</a>
     
+    </footer>
   </body>
 </html>

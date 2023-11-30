@@ -79,38 +79,47 @@
     <%- include('partials/navigation') %>
     <h1>Lista De Tareas</h1>
 
-   <div class="container">
-  <form class="task-form" id="create-task-form">
-    <input type="text" id="new-task" placeholder="Nueva tarea" required />
-    <button type="submit">Agregar</button>
-  </form>
+    <div class="container">
+      <form class="task-form" id="create-task-form">
+        <input type="text" id="new-task" placeholder="Nueva tarea" required />
+        <button type="submit">Agregar</button>
+      </form>
 
-  <h2>Actualizar una tarea</h2>
-  <form class="task-form" id="update-task-form">
-    <input type="text" id="update-task" placeholder="Actualizar tarea" required />
-    <input type="hidden" id="update-task-id" />
-    <button type="submit">Actualizar</button>
-  </form>
+      <h2>Actualizar una tarea</h2>
+      <form class="task-form" id="update-task-form">
+        <input
+          type="text"
+          id="update-task"
+          placeholder="Actualizar tarea"
+          required
+        />
+        <input type="hidden" id="update-task-id" />
+        <button type="submit">Actualizar</button>
+      </form>
 
-  <h2>Eliminar una tarea</h2>
-  <form class="task-form" id="delete-task-form">
-    <input type="number" id="delete-task-id" placeholder="ID de tarea a eliminar" required />
-    <button type="submit">Eliminar</button>
-  </form>
+      <h2>Eliminar una tarea</h2>
+      <form class="task-form" id="delete-task-form">
+        <input
+          type="number"
+          id="delete-task-id"
+          placeholder="ID de tarea a eliminar"
+          required
+        />
+        <button type="submit">Eliminar</button>
+      </form>
 
-  <h2>Listar todas las tareas</h2>
-  <ul class="task-list" id="all-tasks"></ul>
+      <h2>Listar todas las tareas</h2>
+      <ul class="task-list" id="all-tasks"></ul>
 
-  <h2>Listar tareas completas</h2>
-  <ul class="task-list" id="completed-tasks"></ul>
+      <h2>Listar tareas completas</h2>
+      <ul class="task-list" id="completed-tasks"></ul>
 
-  <h2>Listar tareas incompletas</h2>
-  <ul class="task-list" id="incomplete-tasks"></ul>
+      <h2>Listar tareas incompletas</h2>
+      <ul class="task-list" id="incomplete-tasks"></ul>
 
-  <script src="app.js"></script>
-</div>
+      <script src="app.js"></script>
+    </div>
 
-<%- include('partials/footer') %>
-
+    <%- include('partials/footer') %>
   </body>
 </html>

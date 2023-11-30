@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        background-color: #e75e5e; /* Dark blue background */
+        overflow: hidden;
+      }
+
+      h1 {
+        text-align: center;
+        color: #fff;
+        padding: 20px;
+        margin: 0;
+        background-color: #4caf50;
+      }
+
+      form {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        text-align: center;
+        z-index: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      input,
+      textarea {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      label {
+        display: block;
+        text-align: left;
+        margin-bottom: 8px;
+        font-weight: bold;
+      }
+
+      button {
+        padding: 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .error {
+        color: red;
+        margin-bottom: 10px;
+      }
+
+      .snowflake {
+        position: absolute;
+        font-size: 20px;
+        line-height: 1;
+        color: #fff;
+        user-select: none;
+      }
+
+      @keyframes snowfall {
+        0% {
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      footer {
+        margin-top: auto;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0px 40px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      .rss-container {
+        position: absolute;
+        right: 22px;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 10px;
+        width: 50px;
+      }
+
+      .rss-item {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .rss-item img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+        border-radius: 10%;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0px;
+      }
+
+      a {
+        display: inline-block;
+        padding: 0px 40px;
+        font-size: 20px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #3498db;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      a:hover {
+        background-color: #2980b9;
+      }
+
+      .christmas-characters {
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .character {
+        margin-bottom: 10px;
+      }
+
+      .character img {
+        width: 100px;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      .christmas-characters {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .character {
+        margin-bottom: 10px;
+      }
+
+      .character img {
+        width: 126px;
+        height: auto;
+        border-radius: 50%;
+      }
+
+      .additional-characters {
+        position: absolute;
+        left: 270px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .additional-character {
+        margin-bottom: 10px;
+      }
+
+      .additional-character img {
+        width: 150px;
+        height: auto;
+        border-radius: 50%;
+      }
+    </style>
+
+    <title>Task Form</title>
+  </head>
+  <body>
+    <h1>Navidad está en camino</h1>
+
+    <div class="christmas-characters">
+      <div class="character">
+        <img
+          src="https://img.freepik.com/fotos-premium/linda-ilustracion-navidad-santa-claus_692702-7653.jpg"
+          alt="Santa Claus"
+        />
+      </div>
+      <div class="character">
+        <img
+          src="https://st4.depositphotos.com/25580534/31432/v/450/depositphotos_314322220-stock-illustration-reindeer-holding-horizontal-banner-showing.jpg"
+          alt="Reindeer"
+        />
+      </div>
+      <div class="character">
+        <img
+          src="https://img.freepik.com/vector-premium/regalos-navidad-cajas-ilustracion-dibujos-animados-vector_508021-312.jpg"
+          alt="Gift"
+        />
+      </div>
+    </div>
+
+    <div class="additional-characters">
+      <div class="additional-character">
+        <img
+          src="https://static.guiainfantil.com/uploads/navidad/reyes-magos-cuento.jpg"
+          alt="Snowman"
+        />
+      </div>
+      <div class="additional-character">
+        <img
+          src="https://services.meteored.com/img/article/reyes-magos-la-verdad-sobre-la-estrella-de-belen-navidad-conjuncion-jesus-1672815837136_1280.jpg"
+          alt="Gingerbread Man"
+        />
+      </div>
+      <div class="additional-character">
+        <img
+          src="https://3.bp.blogspot.com/-XcRwLCie-os/WjLqK0iv5_I/AAAAAAAAF30/Krc9Wn25wbUOxhAN9CMsS_lmvyBM-pFuACLcBGAs/s1600/29ut.JPG"
+          alt="Candle"
+        />
+      </div>
+    </div>
+
+    <div class="rss-container">
+      <a
+        class="rss-item"
+        href="https://fernando-zarama-pardo.jimdosite.com/"
+        target="_blank"
+      >
+        <img src="/img/logoFer.png" alt="Fernando Zarama Pardo" />
+      </a>
+
+      <a
+        class="rss-item"
+        href="https://www.linkedin.com/in/fernandozaramapardo-frontenddeveloper/"
+        target="_blank"
+      >
+        <img
+          src="https://static-00.iconduck.com/assets.00/linkedin-icon-2048x2048-ya5g47j2.png"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://www.instagram.com/ferzaramap/"
+        target="_blank"
+      >
+        <img
+          src="https://eltallerdehector.com/wp-content/uploads/2022/06/cd939-logo-instagram-png.png"
+          alt="Twitter ACL"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://www.amazon.com/stores/Sr-Fernando-Zarama-Pardo/author/B0C9XG2Z8J?ref=ap_rdr&store_ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true"
+        target="_blank"
+      >
+        <img
+          src="https://logowik.com/content/uploads/images/amazon6707.jpg"
+          alt="Instagram ACL"
+        />
+      </a>
+      <a
+        class="rss-item"
+        href="https://aclcolombia.com/voces-acl/fernando-zarama/"
+        target="_blank"
+      >
+        <img
+          src="https://pbs.twimg.com/profile_images/951156091454402560/aU397EQz_400x400.jpg"
+        />
+      </a>
+    </div>
+
+    <div id="snowfall-container"></div>
+
+    <form id="taskForm">
+      <label for="taskName">Task Name:</label>
+      <input type="text" id="taskName" name="taskName" required minlength="3" />
+
+      <label for="taskDescription">Task Description:</label>
+      <textarea id="taskDescription" name="taskDescription"></textarea>
+
+      <div class="error" id="error"></div>
+
+      <button type="button" onclick="saveTask()">Save Task</button>
+    </form>
+
+    <footer>
+      <h2>Go to My Home Page</h2>
+      <a href="https://fernando-zarama-pardo.jimdosite.com/" target="_blank"
+        >Visit My Website</a
+      >
+      <a href="/task" class="footer-btn">Task</a>
+      <a href="/about" class="footer-btn">About</a>
+      <a href="/Contact" class="footer-btn">Contact</a>
+    </footer>
+
+    <script>
+      function createSnowflake() {
+        const snowflake = document.createElement("div");
+        snowflake.className = "snowflake";
+        snowflake.innerHTML = "❄";
+        document.getElementById("snowfall-container").appendChild(snowflake);
+
+        const initialPosition = Math.random() * window.innerWidth;
+        snowflake.style.left = `${initialPosition}px`;
+
+        snowflake.style.animation = `snowfall ${
+          Math.random() * 4 + 2
+        }s linear infinite`;
+
+        setTimeout(() => {
+          snowflake.remove();
+        }, Math.random() * 3000 + 1000);
+      }
+
+      function createSnowfall() {
+        setInterval(createSnowflake, 100);
+      }
+
+      createSnowfall();
+
+      function saveTask() {
+        var taskName = document.getElementById("taskName").value;
+        var taskDescription = document.getElementById("taskDescription").value;
+
+        // Validation
+        if (taskName.length < 3) {
+          document.getElementById("error").innerHTML =
+            "Task name must be at least 3 characters.";
+          return;
+        }
+
+        document.getElementById("error").innerHTML = "";
+
+        alert("Task saved successfully!");
+
+        document.getElementById("taskName").value = "";
+        document.getElementById("taskDescription").value = "";
+      }
+    </script>
+  </body>
+</html>
