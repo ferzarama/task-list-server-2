@@ -16,6 +16,7 @@ app.get("/About", (req, res) => res.render("About", { title: "About" }));
 app.get("/Contact", (req, res) => res.render("Contact", { title: "Contact" }));
 app.get("/Car", (req, res) => res.render("Car", { title: "Car Test" }));
 app.get("/Form", (req, res) => res.render("Form", { title: "Form" }));
+app.get("/Chakra", (req, res) => res.render("Chakra", { title: "Chakra" }));
 
 app.use(express.static(path.join(__dirname, "public")));
 

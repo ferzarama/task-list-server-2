@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chakra Page</title>
+    <link rel="icon" type="image/png" href="https://jimdo-storage.freetls.fastly.net/image/422426720/7e2ece95-60ab-4f20-b812-8e04f46bf5eb.png?quality=80,90&auto=webp&disable=upscale&width=480&height=276&trim=0,0,0,0">
+
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/chakra-ui@1.0.0/dist/chakra-ui.min.css"
+      integrity="sha384-CiJ4qCfoeYUQttXpp0yDMtxm5Vlgm+0Bs7zOq8+0NSOuH+ET2JzJ3h5SzM/H+Ztk"
+      crossorigin="anonymous"
+    />
+    <%- include('partials/head') %>
+  </head>
+
+  <body>
+    <!-- Include navigation -->
+    <%- include('partials/navigation') %>
+
+    <div id="root" class="chakra-container">
+      <!-- My Chakra UI component -->
+      <div>
+        <h1>Welcome to Chakra UI!</h1>
+        <img
+          class="chakra-image"
+          src="https://img.freepik.com/fotos-premium/render-3d-formas-corazon-color-rojo-dorado-romantico-par-corazones-rojos-diseno-3d-realista_814277-163.jpg"
+          alt="Image 1"
+        />
+        <p>This is a sample Chakra UI component running with Node.js.</p>
+      </div>
+
+      <button class="chakra-button" onclick="redirectToExternalPage()">
+        Click me!
+      </button>
+
+      <!-- My Chakra UI component script -->
+      <script src="path-to-your-bundle.js"></script>
+
+      
+      <script>
+        function redirectToExternalPage() {
+          window.location.href =
+            "https://fernandozaramapardo.mydurable.com/?pt=NjU2NzUzYjA2YjIyZjg1OGI1Y2E1NzQ4OjE3MDEyNzc0NzIuNzEyOnByZXZpZXc=";
+        }
+      </script>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <img src="https://jimdo-storage.freetls.fastly.net/image/422426720/7e2ece95-60ab-4f20-b812-8e04f46bf5eb.png?quality=80,90&auto=webp&disable=upscale&width=480&height=276&trim=0,0,0,0" alt="Logo" class="logo" />
+        <p>Fernando Zarama Pardo 2023</p>
+      </div>
+
+      <div class="footer-right">
+        <div class="social-icons">
+          <a href="https://github.com/ferzarama" class="social-icon"
+            ><img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub"
+          /></a>
+          <a href="https://www.amazon.com/stores/Sr-Fernando-Zarama-Pardo/author/B0C9XG2Z8J?ref=ap_rdr&store_ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true" class="social-icon"
+            ><img src="https://cdn.icon-icons.com/icons2/1381/PNG/512/amazonstore_93572.png" alt="Amazon"
+          /></a>
+           <a href="https://www.instagram.com/ferzaramap" class="social-icon"
+            ><img src="https://i.pinimg.com/originals/a0/77/a3/a077a380c6ae2f02313c336e67d40f86.jpg" alt="Instagram"
+          /></a>
+          <a href="https://www.linkedin.com/in/fernandozaramapardo/?originalSubdomain=co" class="social-icon"
+            ><img src="https://www.vhv.rs/dpng/d/407-4071004_linkedin-icon-twitter-logo-svg-hd-png-download.png" alt="Linkedin"
+          /></a>
+          
+        </div>
+
+        <div class="footer-links">
+          <a href="/Car">Car</a>
+          <a href="/About">About Me</a>
+          <a href="/Form">Form</a>
+          <a href="/Task">Task</a>
+         
+          
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      .chakra-container {
+        padding: 70px;
+        background-color: #cc8484;
+        border-radius: 90px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .chakra-image {
+        max-width: 45%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        transform: perspective(1900px) rotateY(20deg);
+        transition: transform 0.1s ease-in-out;
+      }
+
+      .chakra-image:hover {
+        transform: perspective(5500px) rotateY(0deg);
+      }
+
+      .chakra-button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: rgb(251, 255, 0);
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    text-align: left;
+    flex: 1; 
+  }
+
+  .logo {
+    max-width: 100px; 
+  }
+
+  .footer-left p {
+    margin-top: 10px;
+  }
+
+  .footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex: 2; 
+  }
+
+  .social-icons {
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .social-icon {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-icon img {
+    width: 80%;
+    height: 80%; 
+  }
+
+  .footer-links a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+
+ 
+  .footer-links a:hover {
+    color: #00f;
+  }
+    </style>
+  </body>
+</html>
